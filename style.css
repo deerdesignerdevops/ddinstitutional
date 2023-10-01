@@ -15,36 +15,35 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 /* Add your custom styles here */
 
 @font-face {
-	font-family: "Graphik";
-	src: url(https://deerdesigner.mafreitas.com.br/wp-content/themes/hello-elementor-child/fonts/GraphikRegular.otf);
-	font-weight: 400;
-	font-display: swap;
+  font-family: "Graphik";
+  src: url(https://wordpress-744145-3932025.cloudwaysapps.com/wp-content/themes/ddinstitutional/fonts/GraphikRegular.otf);
+  font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: "Graphik";
-	src: url(https://deerdesigner.mafreitas.com.br/wp-content/themes/hello-elementor-child/fonts/GraphikLight.otf);
-	font-weight: 300;
-	font-display: swap;
+  font-family: "Graphik";
+  src: url(https://wordpress-744145-3932025.cloudwaysapps.com/wp-content/themes/ddinstitutional/fonts/GraphikLight.otf);
+  font-weight: 300;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: "Graphik";
-	src: url(https://deerdesigner.mafreitas.com.br/wp-content/themes/hello-elementor-child/fonts/GraphikSemibold.otf);
-	font-weight: 600;
-	font-display: swap;
+  font-family: "Graphik";
+  src: url(https://wordpress-744145-3932025.cloudwaysapps.com/wp-content/themes/ddinstitutional/fonts/GraphikSemibold.otf);
+  font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
-	font-family: "Graphik";
-	src: url(https://deerdesigner.mafreitas.com.br/wp-content/themes/hello-elementor-child/fonts/GraphikBold.otf);
-	font-weight: 800;
-	font-display: swap;
+  font-family: "Graphik";
+  src: url(https://wordpress-744145-3932025.cloudwaysapps.com/wp-content/themes/ddinstitutional/fonts/GraphikBold.otf);
+  font-weight: 800;
+  font-display: swap;
 }
 
 body {
-  font-family: "Graphik" !important;
-	
+  font-family: "Graphik", sans-serif !important;
 }
 
 .mobile__only {
@@ -84,7 +83,7 @@ a {
   content: " ";
   position: absolute;
   display: inline-block;
-  -webkit-mask: url(https://deerdesigner.mafreitas.com.br/wp-content/uploads/2023/09/line-purple-1.svg);
+  -webkit-mask: url(https://wordpress-744145-3932025.cloudwaysapps.com/wp-content/uploads/2023/09/line-purple-1.svg);
   -webkit-mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   left: 0;
@@ -233,16 +232,15 @@ ul.testimonial-star-rating {
   .eael-testimonial-item-inner {
     display: flex;
     flex-direction: column;
-	flex-direction: column-reverse;
-	height: auto;
-	align-items: center;
+    flex-direction: column-reverse;
+    height: auto;
+    align-items: center;
   }
-	
 
   .eael-testimonial-image,
   .eael-testimonial-content {
     width: 100% !important;
-	margin: 0 !important;
+    margin: 0 !important;
   }
 
   ul.testimonial-star-rating {
@@ -256,8 +254,4 @@ ul.testimonial-star-rating {
     font-size: 1rem !important;
     padding: 12px !important;
   }
-	
-	
-
-
 }
