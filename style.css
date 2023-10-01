@@ -1,0 +1,263 @@
+/* 
+Theme Name: Hello Elementor Child
+Theme URI: https://github.com/elementor/hello-theme-child/
+Description: Hello Elementor Child is a child theme of Hello Elementor, created by Elementor team
+Author: Elementor Team
+Author URI: https://elementor.com/
+Template: hello-elementor
+Version: 2.0.0
+Text Domain: hello-elementor-child
+License: GNU General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, threaded-comments, translation-ready
+*/
+
+/* Add your custom styles here */
+
+@font-face {
+	font-family: "Graphik";
+	src: url(https://deerdesigner.mafreitas.com.br/wp-content/themes/hello-elementor-child/fonts/GraphikRegular.otf);
+	font-weight: 400;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Graphik";
+	src: url(https://deerdesigner.mafreitas.com.br/wp-content/themes/hello-elementor-child/fonts/GraphikLight.otf);
+	font-weight: 300;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Graphik";
+	src: url(https://deerdesigner.mafreitas.com.br/wp-content/themes/hello-elementor-child/fonts/GraphikSemibold.otf);
+	font-weight: 600;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Graphik";
+	src: url(https://deerdesigner.mafreitas.com.br/wp-content/themes/hello-elementor-child/fonts/GraphikBold.otf);
+	font-weight: 800;
+	font-display: swap;
+}
+
+body {
+  font-family: "Graphik" !important;
+	
+}
+
+.mobile__only {
+  display: none !important;
+}
+
+.elementor-button {
+  border: 3px solid black;
+  box-shadow: inset 2px 2px 0 2px white !important;
+}
+
+.clear_button_style .elementor-button {
+  border: none !important;
+  box-shadow: unset !important;
+}
+
+a {
+  transition: 0.5s;
+}
+
+.nav-link a:hover {
+  color: var(--e-global-color-c30730f) !important;
+}
+
+.entry-title {
+  display: none !important;
+}
+
+#underlines {
+  position: relative;
+  z-index: 1;
+}
+
+#underlines:after {
+  width: 100%;
+  height: 1.2rem;
+  content: " ";
+  position: absolute;
+  display: inline-block;
+  -webkit-mask: url(https://deerdesigner.mafreitas.com.br/wp-content/uploads/2023/09/line-purple-1.svg);
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  left: 0;
+  bottom: -10px;
+  z-index: -1;
+}
+
+.heading-underline-yellow {
+  color: var(--e-global-color-c30730f);
+}
+
+.heading-underline-yellow:after {
+  background-color: var(--e-global-color-c30730f);
+}
+
+.heading-underline-purple {
+  color: var(--e-global-color-2e8fc0d);
+}
+
+.heading-underline-purple:after {
+  background-color: var(--e-global-color-2e8fc0d);
+}
+
+.heading-underline-green {
+  color: var(--e-global-color-primary);
+}
+
+.heading-underline-green:after {
+  background-color: var(--e-global-color-primary);
+}
+
+/**** HOME TESTIMONIAL SLIDER ****/
+.eael-testimonial-content.rating-five {
+  padding: 55px 0 0;
+}
+
+.wall-of-love-slider.elementor-widget-eael-testimonial-slider
+  .icon-img-left-content
+  .eael-testimonial-quote {
+  position: relative;
+  left: 0;
+  top: -20px;
+}
+
+ul.testimonial-star-rating {
+  float: right;
+}
+
+.eael-testimonial-text {
+  padding: 0 0 40px 0px !important;
+}
+
+.eael-testimonial-quote {
+  position: relative !important;
+  top: -20px !important;
+}
+
+/*TESTIMONIAL - PRICING PAGE*/
+.pricing-testimonials.elementor-widget-eael-testimonial-slider
+  .testimonial-inline-style
+  .eael-testimonial-image {
+  width: 18% !important;
+}
+
+.pricing-testimonials .swiper-wrapper {
+  height: auto !important;
+}
+
+.eael-testimonial-item-inner {
+  height: 400px;
+}
+
+.pricing-testimonials ul.testimonial-star-rating {
+  position: relative;
+  top: 20px !important;
+  float: left;
+}
+
+.pricing-testimonials.elementor-widget-eael-testimonial-slider
+  .testimonial-inline-style {
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+}
+
+.pricing-testimonials p.eael-testimonial-user-company {
+  position: absolute;
+  margin: -2px 0 0 0 !important;
+}
+
+.eael-testimonial-content.rating-five {
+  padding: 0;
+}
+
+.eael-testimonial-quote {
+  display: none;
+}
+
+.eael-testimonial-item-inner {
+  border: none !important;
+}
+
+.related__posts_wrapper {
+  background-color: #f7f7f7;
+  padding: 20px;
+  margin-bottom: 60px;
+}
+
+.related__posts_title {
+  color: var(--e-global-color-2e8fc0d);
+  font-weight: 600;
+}
+
+.related__posts_content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.related__posts_content a:hover {
+  opacity: 0.5;
+}
+
+.related__posts_content h4 {
+  color: var(--e-global-color-secondary);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+/*MEDIA QUERIES*/
+@media (max-width: 768px) {
+  .related__posts_content {
+    flex-direction: column;
+  }
+
+  .mobile__only {
+    display: block !important;
+  }
+
+  #underlines:after {
+    height: 0.9rem;
+  }
+
+  .eael-testimonial-item-inner {
+    display: flex;
+    flex-direction: column;
+	flex-direction: column-reverse;
+	height: auto;
+	align-items: center;
+  }
+	
+
+  .eael-testimonial-image,
+  .eael-testimonial-content {
+    width: 100% !important;
+	margin: 0 !important;
+  }
+
+  ul.testimonial-star-rating {
+    float: none;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 1rem !important;
+    padding: 12px !important;
+  }
+	
+	
+
+
+}
