@@ -83,7 +83,7 @@ a {
   content: " ";
   position: absolute;
   display: inline-block;
-  -webkit-mask: url(https://wordpress-744145-3932025.cloudwaysapps.com/wp-content/uploads/2023/09/line-purple-1.svg);
+  -webkit-mask: url(assets/images/line-purple-1.svg);
   -webkit-mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   left: 0;
