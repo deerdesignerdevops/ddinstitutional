@@ -45,7 +45,7 @@ require_once('libs/stripe/init.php');
 
 function sendStripeNotificationPaymentUpdatedToSlack($req){
 	//SLACK PUSH NOTIFICATION
-	$slackUrl = 'https://hooks.slack.com/services/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';
+	$slackUrl = SLACK_WEBHOOK_URL;
 	$slackMessageBody = [
 		'text'  => '<!channel> - Payment Succeeded :white_check_mark:
 Client: ' . $req['name'] . '
@@ -94,7 +94,7 @@ function hideHeaderAndFooterByPage(){
 		</style>";
 	};
 }
-add_action("head", "hideHeaderAndFooterByPage");
+add_action("wp_head", "hideHeaderAndFooterByPage");
 
 
 
