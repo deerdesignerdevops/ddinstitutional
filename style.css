@@ -115,6 +115,14 @@ a {
   background-color: var(--e-global-color-primary);
 }
 
+.heading-underline-orange {
+  color: var(--e-global-color-secondary);
+}
+
+.heading-underline-orange:after {
+  background-color: var(--e-global-color-secondary);
+}
+
 /**** HOME TESTIMONIAL SLIDER ****/
 .eael-testimonial-content.rating-five {
   padding: 55px 0 0;
