@@ -86,16 +86,6 @@ add_action( 'rest_api_init', function () {
   ) );
 } );
 
-function hideHeaderAndFooterByPage(){
-	global $post;
-	if ( $post->post_parent === 13609 ){
-		echo "<style>
-			header, footer{display: none !important;}
-		</style>";
-	};
-}
-add_action("wp_head", "hideHeaderAndFooterByPage");
-
 
 
 function googleTagManagerOnHead(){
