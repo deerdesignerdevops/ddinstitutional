@@ -145,7 +145,6 @@ ul.testimonial-star-rating {
 
 .eael-testimonial-quote {
   position: relative !important;
-  top: -20px !important;
 }
 
 /*TESTIMONIAL - PRICING PAGE*/
@@ -197,7 +196,6 @@ ul.testimonial-star-rating {
 .related__posts_wrapper {
   background-color: #f7f7f7;
   padding: 20px;
-  margin-bottom: 60px;
 }
 
 .related__posts_title {
