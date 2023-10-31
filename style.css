@@ -60,8 +60,14 @@ body {
   box-shadow: unset !important;
 }
 
-a {
+p a {
   transition: 0.5s;
+  color: var(--e-global-color-primary);
+  text-decoration: underline !important;
+}
+
+a:hover {
+  color: var(--e-global-color-primary);
 }
 
 .nav-link a:hover {
