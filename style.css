@@ -97,6 +97,10 @@ a:hover {
   z-index: -1;
 }
 
+.heading-underline-white {
+  color: #fff;
+}
+
 .heading-underline-yellow {
   color: var(--e-global-color-c30730f);
 }
