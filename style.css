@@ -101,6 +101,10 @@ a:hover {
   color: #fff;
 }
 
+.heading-underline-white:after {
+  background-color: #fff;
+}
+
 .heading-underline-yellow {
   color: var(--e-global-color-c30730f);
 }
