@@ -66,6 +66,10 @@ p a {
   text-decoration: underline !important;
 }
 
+.elementor-accordion-title{
+	text-decoration: none !important;
+}
+
 a:hover {
   color: var(--e-global-color-primary);
 }
@@ -187,7 +191,7 @@ ul.testimonial-star-rating {
   overflow: hidden;
   text-align: left;
   width: 100%;
-  height: 80px;
+  height: 100px;
 }
 
 .pricing-testimonials .eael-testimonial-item .eael-testimonial-item-inner {
@@ -222,6 +226,11 @@ ul.testimonial-star-rating {
   justify-content: space-between;
   gap: 20px;
   margin-top: 20px;
+}
+
+.related__posts_content a{
+	text-decoration: none;
+	transition: 0.5s;
 }
 
 .related__posts_content a:hover {

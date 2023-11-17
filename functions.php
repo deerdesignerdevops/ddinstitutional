@@ -23,7 +23,7 @@ function hello_elementor_child_scripts_styles() {
 
 	// Dynamically get version number of the parent stylesheet (lets browsers re-cache your stylesheet when you update your theme)
 	$theme   = wp_get_theme( 'HelloElementorChild' );
-	$version = $theme->get( 'Version' );
+	$version = rand(111,9999);
 
 	// CSS
 	wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/style.css', array( 'hello-elementor-theme-style' ), $version );
@@ -118,3 +118,35 @@ function removePageTitleFromAllPages($return){
 	return false;
 }
 add_filter('hello_elementor_page_title', 'removePageTitleFromAllPages');
+
+
+function subscribeUserToMoosendEmailListFromQuizForm($entryId, $formData, $form){
+	if($form->id === 7){
+
+		$user_name = $formData['quiz_user_name'];
+		$user_email = $formData['quiz_user_email'];
+		$user_company_url = $formData['quiz_user_url'];
+		$user_client_type = $formData['quiz_user_type'];
+		$user_team_size = $formData['quiz_user_team_size'];
+		$time_spent = $formData["deer_designer_quiz_total_hours"];
+		$total_week = $formData["deer_designer_quiz_total_money_week"];
+		$total_month = $formData["deer_designer_quiz_total_money_month"];
+		
+		$user_client_type_final = isset($formData['quiz_user_type_other']) ? $formData['quiz_user_type_other'] : $user_client_type;
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, MOOSEND_API_URL);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+		curl_setopt($ch, CURLOPT_HTTPHEADER, [
+			'Content-Type: application/json',
+			'Accept: application/json',
+		]);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, "{\n    \"Name\" : \"$user_name\",\n    \"Email\" : \"$user_email\",\n    \"HasExternalDoubleOptIn\": false,\n    \"CustomFields\": [\n        \"Company Website=$user_company_url\",\n        \"Client Type=$user_client_type_final\",\n        \"Team Size=$user_team_size\",\n        \"Time Spent=$time_spent\",\n        \"Total Week=$$total_week\",\n        \"Total Month=$$total_month\"   ]}");
+
+		curl_exec($ch);
+
+		curl_close($ch);
+	}
+}
+add_action( 'fluentform/submission_inserted', 'subscribeUserToMoosendEmailListFromQuizForm', 20, 3);
