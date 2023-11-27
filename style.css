@@ -46,6 +46,18 @@ body {
   font-family: "Graphik", sans-serif !important;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a {
+  text-wrap: balance;
+}
+
 .mobile__only {
   display: none !important;
 }
@@ -66,8 +78,8 @@ p a {
   text-decoration: underline !important;
 }
 
-.elementor-accordion-title{
-	text-decoration: none !important;
+.elementor-accordion-title {
+  text-decoration: none !important;
 }
 
 a:hover {
@@ -228,9 +240,9 @@ ul.testimonial-star-rating {
   margin-top: 20px;
 }
 
-.related__posts_content a{
-	text-decoration: none;
-	transition: 0.5s;
+.related__posts_content a {
+  text-decoration: none;
+  transition: 0.5s;
 }
 
 .related__posts_content a:hover {
