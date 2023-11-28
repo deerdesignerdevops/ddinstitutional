@@ -184,6 +184,12 @@ ul.testimonial-star-rating {
   width: 18% !important;
 }
 
+.eael-testimonial-image figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .pricing-testimonials .swiper-wrapper {
   height: auto !important;
 }
