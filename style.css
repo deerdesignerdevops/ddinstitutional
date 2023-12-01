@@ -263,14 +263,12 @@ ul.testimonial-star-rating {
 }
 
 .slick-next {
-  right: -30px !important;
   z-index: 3;
   background: none !important;
   font-size: 0 !important;
 }
 
 .slick-prev {
-  left: -60px !important;
   z-index: 3;
   background: none !important;
   font-size: 0 !important;
