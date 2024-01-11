@@ -46,15 +46,8 @@ body {
   font-family: "Graphik", sans-serif !important;
 }
 
-p,
 h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-span,
-a {
+h2 {
   text-wrap: balance;
 }
 
