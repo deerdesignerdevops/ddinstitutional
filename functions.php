@@ -26,17 +26,27 @@ function hello_elementor_child_scripts_styles() {
 	$version = $theme->get( 'Version' );
 
 	// CSS
-	wp_enqueue_style( 'custom', get_stylesheet_directory_uri() . '/style.css', array( 'hello-elementor-theme-style' ), $version );
+	wp_enqueue_style( 'dd-custom', get_stylesheet_directory_uri() . '/style.css', array( 'hello-elementor-theme-style' ) );
 	//wp_enqueue_style( 'slick', get_stylesheet_directory_uri() . '/libs/slick/css/slick.css', $version );
 	//wp_enqueue_style( 'slick-theme', get_stylesheet_directory_uri() . '/libs/slick/css/slick-theme.css', $version );
 
 	//JS
 	//wp_enqueue_script('jquery', get_stylesheet_directory_uri() . '/libs/jquery/jquery.js', $version);
 	//wp_enqueue_script('slick', get_stylesheet_directory_uri() . '/libs/slick/js/slick.min.js', $version);
-	wp_enqueue_script('custom', get_stylesheet_directory_uri() . '/scripts.js', $version);
+	wp_enqueue_script('dd-custom', get_stylesheet_directory_uri() . '/scripts.js');
 
 }
 add_action( 'wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20 );
+
+
+
+function removeFileVersionFromStylesAndScripts($src)
+{
+    $parts = explode('?ver', $src);
+    return $parts[0];
+}
+add_filter('script_loader_src', 'removeFileVersionFromStylesAndScripts', 15, 1);
+add_filter('style_loader_src', 'removeFileVersionFromStylesAndScripts', 15, 1);
 
 
 
