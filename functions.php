@@ -27,33 +27,16 @@ function hello_elementor_child_scripts_styles() {
 
 	// CSS
 	wp_enqueue_style( 'dd-custom', get_stylesheet_directory_uri() . '/style.css', array( 'hello-elementor-theme-style' ), $version, 'all' );
-	//wp_enqueue_style( 'slick', get_stylesheet_directory_uri() . '/libs/slick/css/slick.css', $version );
-	//wp_enqueue_style( 'slick-theme', get_stylesheet_directory_uri() . '/libs/slick/css/slick-theme.css', $version );
 
 	//JS
-	//wp_enqueue_script('jquery', get_stylesheet_directory_uri() . '/libs/jquery/jquery.js', $version);
-	//wp_enqueue_script('slick', get_stylesheet_directory_uri() . '/libs/slick/js/slick.min.js', $version);
 	wp_enqueue_script('dd-custom', get_stylesheet_directory_uri() . '/scripts.js', array(), $version, 'all');
 
 }
 add_action( 'wp_enqueue_scripts', 'hello_elementor_child_scripts_styles', 20 );
 
 
-
-function stripeInvoiceGenerationWebhook($req){
-	$invoiceId = $req['data']['object']['id'];
-	$response_data_arr = file_get_contents('php://input');	
-	file_put_contents("wp-content/uploads/stripe_webhooks_logs/stripe_response_".date('Y_m_d')."_".$invoiceId.".log", $response_data_arr);
-}
-
-//NEW ENDPOINT FOR STRIPE INVOICE WEBHOOK
-add_action( 'rest_api_init', function () {
-  register_rest_route( '/stripe/v1','invoicegenerated', array(
-    'methods' => 'POST',
-    'callback' => 'stripeInvoiceGenerationWebhook',
-  ) );
-} );
-
+// keep WP from resizing images 
+add_filter( 'big_image_size_threshold', '__return_false' ); 
 
 
 function googleTagManagerOnHead(){
