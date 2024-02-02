@@ -46,11 +46,6 @@ body {
   font-family: "Graphik", sans-serif !important;
 }
 
-h1,
-h2 {
-  text-wrap: balance;
-}
-
 ul {
   margin-bottom: 40px;
 }
