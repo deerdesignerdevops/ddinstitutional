@@ -112,7 +112,7 @@ function addCustomCodeAfterImgInBlogPosts(){
 			echo "
 			<script>
 				document.addEventListener('DOMContentLoaded', function(){
-					const postContentImg = document.querySelector('#dd__post_content img')
+					const postContentImg = document.querySelector('#dd__post_content figure')
 					console.log('postContentImg: ', postContentImg)
 	
 					let spotifyButtonWrapper = document.createElement('div');
@@ -120,6 +120,7 @@ function addCustomCodeAfterImgInBlogPosts(){
 					let spotifyButton = document.createElement('a');
 					spotifyButton.innerText = 'Listen to this episode on Spotify';
 					spotifyButton.classList.add('spotify__button');
+					spotifyButton.setAttribute('target', '_blank');
 					spotifyButton.href = '$spotifyUrl';
 
 					spotifyButtonWrapper.appendChild(spotifyButton);
