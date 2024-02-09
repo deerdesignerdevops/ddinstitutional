@@ -103,3 +103,33 @@ function subscribeUserToMoosendEmailListFromQuizForm($entryId, $formData, $form)
 }
 add_action( 'fluentform/submission_inserted', 'subscribeUserToMoosendEmailListFromQuizForm', 20, 3);
 
+
+function addCustomCodeAfterImgInBlogPosts(){
+	if(is_singular('post')){
+		$spotifyUrl = get_field('spotify_button');
+
+		if($spotifyUrl){ 
+			echo "
+			<script>
+				document.addEventListener('DOMContentLoaded', function(){
+					const postContentImg = document.querySelector('#dd__post_content img')
+					console.log('postContentImg: ', postContentImg)
+	
+					let spotifyButtonWrapper = document.createElement('div');
+					spotifyButtonWrapper.classList.add('spotify__button_wrapper');
+					let spotifyButton = document.createElement('a');
+					spotifyButton.innerText = 'Listen to this episode on Spotify';
+					spotifyButton.classList.add('spotify__button');
+					spotifyButton.href = '$spotifyUrl';
+
+					spotifyButtonWrapper.appendChild(spotifyButton);
+					postContentImg.after(spotifyButtonWrapper);
+				})
+			</script>";
+		 }
+	}
+}
+
+add_action('template_redirect', 'addCustomCodeAfterImgInBlogPosts');
+
+
