@@ -107,6 +107,7 @@ add_action( 'fluentform/submission_inserted', 'subscribeUserToMoosendEmailListFr
 function addCustomCodeAfterImgInBlogPosts(){
 	if(is_singular('post')){
 		$spotifyUrl = get_field('spotify_button');
+		$spotifyBtnImg = get_stylesheet_directory_uri() . '/assets/images/spotify.png';
 
 		if($spotifyUrl){ 
 			echo "
@@ -117,13 +118,17 @@ function addCustomCodeAfterImgInBlogPosts(){
 	
 					let spotifyButtonWrapper = document.createElement('div');
 					spotifyButtonWrapper.classList.add('spotify__button_wrapper');
+
 					let spotifyButton = document.createElement('a');
-					spotifyButton.innerText = 'Listen to this episode on Spotify';
 					spotifyButton.classList.add('spotify__button');
 					spotifyButton.setAttribute('target', '_blank');
 					spotifyButton.href = '$spotifyUrl';
 
+					let spotifyBtnImg = document.createElement('img');
+					spotifyBtnImg.src = '$spotifyBtnImg';
+					
 					spotifyButtonWrapper.appendChild(spotifyButton);
+					spotifyButton.appendChild(spotifyBtnImg);
 					postContentImg.after(spotifyButtonWrapper);
 				})
 			</script>";
