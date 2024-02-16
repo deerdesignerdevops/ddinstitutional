@@ -139,3 +139,12 @@ function addCustomCodeAfterImgInBlogPosts(){
 add_action('template_redirect', 'addCustomCodeAfterImgInBlogPosts');
 
 
+
+function getUrlReferralParamsAndSaveCookie(){
+    if(isset($_GET['referral_id'])){
+        $cookieName = "dd_referral_id";
+        $cookieValue = $_GET['referral_id'];
+        setcookie($cookieName, $cookieValue, time() + (86400 * 30), "/");
+    }
+}
+add_action('template_redirect', 'getUrlReferralParamsAndSaveCookie');
