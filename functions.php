@@ -146,5 +146,10 @@ function getUrlReferralParamsAndSaveCookie(){
         $cookieValue = $_GET['referral_id'];
         setcookie($cookieName, $cookieValue, time() + (86400 * 30), "/");
     }
+	else if(isset($_GET['sld'])){
+        $cookieName = "dd_affiliate_id";
+        $cookieValue = $_GET['sld'];
+        setcookie($cookieName, $cookieValue, time() + (86400 * 30), "/");
+    }
 }
 add_action('template_redirect', 'getUrlReferralParamsAndSaveCookie');
