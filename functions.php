@@ -152,9 +152,9 @@ add_action('template_redirect', 'addCustomCodeAfterImgInBlogPosts');
 
 
 function getUrlReferralParamsAndSaveCookie(){
-    if(isset($_GET['referral_id'])){
+    if(isset($_GET['grsf'])){
         $cookieName = "dd_referral_id";
-        $cookieValue = $_GET['referral_id'];
+        $cookieValue = $_GET['grsf'];
         setcookie($cookieName, $cookieValue, time() + (86400 * 30), "/");
     }
 	else if(isset($_GET['sld'])){
@@ -167,32 +167,36 @@ add_action('template_redirect', 'getUrlReferralParamsAndSaveCookie');
 
 
 
-function setPurchaseUrlWithReferralParams(){
-	$referralId = "";
-	if(isset($_GET['referral_id'])){;
-		$referralId = $_GET['referral_id'];
-	
-		echo "<script>
-		document.addEventListener('DOMContentLoaded', function(){
-			const purchaseButtons = Array.from(document.querySelectorAll('.purchase__btn a'));
-			purchaseButtons?.map((btn) => {
-				console.log(btn.href + '&referral_id=$referralId');
-				btn.href = btn.href + '&referral_id=$referralId';
-			})
+function setPurchaseUrlWithReferralAffiliateParams($urlCustomParam){
+	echo "<script>
+	document.addEventListener('DOMContentLoaded', function(){
+		const purchaseButtons = Array.from(document.querySelectorAll('.purchase__btn a'));
+		purchaseButtons?.map((btn) => {
+			btn.href = btn.href + '$urlCustomParam';
 		})
-		</script>";
-	}elseif($_COOKIE["dd_referral_id"]){
-		$referralId = htmlspecialchars($_COOKIE["dd_referral_id"]);
+	})
+	</script>";
+}
 
-		echo "<script>
-		document.addEventListener('DOMContentLoaded', function(){
-			const purchaseButtons = Array.from(document.querySelectorAll('.purchase__btn a'));
-			purchaseButtons?.map((btn) => {
-				console.log(btn.href + '&referral_id=$referralId');
-				btn.href = btn.href + '&referral_id=$referralId';
-			})
-		})
-		</script>";
+
+
+function setPurchaseUrlWithReferralParams(){
+	$urlCustomParam = '';
+
+	if(isset($_GET['grsf'])){
+		$urlCustomParam = '&grsf=' . $_GET['grsf'];
+
+	}elseif($_COOKIE["dd_referral_id"]){
+		$urlCustomParam = '&grsf=' . htmlspecialchars($_COOKIE["dd_referral_id"]);
+
+	}elseif($_GET['sld']){
+		$urlCustomParam = '&sld=' . $_GET['sld'];
+
+	}elseif($_COOKIE["dd_affiliate_id"]){
+		$urlCustomParam = '&sld=' . htmlspecialchars($_COOKIE["dd_affiliate_id"]);
 	}
+
+	setPurchaseUrlWithReferralAffiliateParams($urlCustomParam);
+
 }
 add_action('template_redirect', 'setPurchaseUrlWithReferralParams');
