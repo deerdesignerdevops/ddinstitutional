@@ -164,3 +164,35 @@ function getUrlReferralParamsAndSaveCookie(){
     }
 }
 add_action('template_redirect', 'getUrlReferralParamsAndSaveCookie');
+
+
+
+function setPurchaseUrlWithReferralParams(){
+	$referralId = "";
+	if(isset($_GET['referral_id'])){;
+		$referralId = $_GET['referral_id'];
+	
+		echo "<script>
+		document.addEventListener('DOMContentLoaded', function(){
+			const purchaseButtons = Array.from(document.querySelectorAll('.purchase__btn a'));
+			purchaseButtons?.map((btn) => {
+				console.log(btn.href + '&referral_id=$referralId');
+				btn.href = btn.href + '&referral_id=$referralId';
+			})
+		})
+		</script>";
+	}elseif($_COOKIE["dd_referral_id"]){
+		$referralId = htmlspecialchars($_COOKIE["dd_referral_id"]);
+
+		echo "<script>
+		document.addEventListener('DOMContentLoaded', function(){
+			const purchaseButtons = Array.from(document.querySelectorAll('.purchase__btn a'));
+			purchaseButtons?.map((btn) => {
+				console.log(btn.href + '&referral_id=$referralId');
+				btn.href = btn.href + '&referral_id=$referralId';
+			})
+		})
+		</script>";
+	}
+}
+add_action('template_redirect', 'setPurchaseUrlWithReferralParams');
