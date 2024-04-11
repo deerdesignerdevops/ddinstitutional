@@ -42,11 +42,23 @@ add_filter( 'big_image_size_threshold', '__return_false' );
 
 function addGrowSurfScript(){
 	$campaignID = GROWSURF_CAMPAIGN_ID;
-	echo "<script type='text/javascript'>
+	echo "<script id='growsurf_script' type='text/javascript'>
 	(function(g,r,s,f){g.grsfSettings={campaignId:'$campaignID',version:'2.0.0'};s=r.getElementsByTagName('head')[0];f=r.createElement('script');f.async=1;f.src='https://app.growsurf.com/growsurf.js'+'?v='+g.grsfSettings.version;f.setAttribute('grsf-campaign', g.grsfSettings.campaignId);!g.grsfInit?s.appendChild(f):'';})(window,document);
 </script>";
 }
 add_action('wp_head', 'addGrowSurfScript');
+
+
+function removeScriptFromWpRocketCache( $inline_exclusions_list ) {
+  if ( ! is_array( $inline_exclusions_list ) ) {
+    $inline_exclusions_list = array();
+  }
+  $inline_exclusions_list[] = 'growsurf_script';
+  return $inline_exclusions_list;
+}
+
+add_filter( 'rocket_defer_inline_exclusions', 'removeScriptFromWpRocketCache');
+
 
 function googleTagManagerOnHead(){
 	echo "
