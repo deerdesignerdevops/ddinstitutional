@@ -101,7 +101,7 @@ a:hover {
   -webkit-mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
   left: 0;
-  bottom: -10px;
+  bottom: -15px;
   z-index: -1;
 }
 
