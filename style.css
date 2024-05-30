@@ -241,6 +241,7 @@ ul.testimonial-star-rating {
 .related__posts_content a {
   text-decoration: none;
   transition: 0.5s;
+  flex: 1;
 }
 
 .related__posts_content a:hover {
